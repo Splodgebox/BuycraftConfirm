@@ -1,0 +1,6 @@
+name: BuycraftConfirm
+version: @version@
+main: net.splodgebox.buycraftconfirm.BuycraftConfirm
+api-version: 1.15.2
+authors: [Splodgebox]
+description: Confirmation for buycraft

@@ -1,0 +1,13 @@
+Packages:
+  test:
+    material: "DIRT"
+    name: "&e&lTest Package"
+    lore:
+      - '&7Left Click to accept this test package'
+      - '&7Right Click to cancel this test package'
+    commands:
+      - 'broadcast Hello Test, haha skater'
+    message:
+      - ''
+      - '&eYou have successfully accepted the &lTest Package'
+      - ''
