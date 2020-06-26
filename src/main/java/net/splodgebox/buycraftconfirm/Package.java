@@ -27,7 +27,7 @@ public class Package {
                 .addLore("&7this package, please right-click it")
                 .addLore("")
                 .addLore("&c&lWARNING: &7By accepting this package")
-                .addLore("&7you calim full responsibility for the")
+                .addLore("&7you claim full responsibility for the")
                 .addLore("&7payment and you will be banned if it is")
                 .addLore("&7flagged as a fraudulent or if the payment")
                 .addLore("&7is charged-back by PayPal")
