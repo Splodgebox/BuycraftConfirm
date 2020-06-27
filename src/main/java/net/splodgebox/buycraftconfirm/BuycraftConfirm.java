@@ -3,6 +3,7 @@ package net.splodgebox.buycraftconfirm;
 import co.aikar.commands.PaperCommandManager;
 import lombok.Getter;
 import net.splodgebox.buycraftconfirm.commands.PackageCommand;
+import net.splodgebox.buycraftconfirm.commands.PackageReloadCommand;
 import net.splodgebox.buycraftconfirm.commands.PackageSendCommand;
 import net.splodgebox.buycraftconfirm.controllers.PackageController;
 import net.splodgebox.buycraftconfirm.controllers.PackageDataController;
@@ -34,6 +35,9 @@ public final class BuycraftConfirm extends JavaPlugin {
         PaperCommandManager commandManager = new PaperCommandManager(this);
         commandManager.registerCommand(new PackageCommand());
         commandManager.registerCommand(new PackageSendCommand());
+        commandManager.registerCommand(new PackageReloadCommand());
+        commandManager.getCommandCompletions().registerStaticCompletion("packages",
+                getConfig().getConfigurationSection("Packages").getKeys(false));
 
         loadMessages();
 

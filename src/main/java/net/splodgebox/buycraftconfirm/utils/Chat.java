@@ -1,5 +1,6 @@
 package net.splodgebox.buycraftconfirm.utils;
 
+import com.google.common.collect.Lists;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
@@ -10,9 +11,7 @@ import java.io.DataOutputStream;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.text.NumberFormat;
-import java.util.Arrays;
-import java.util.Locale;
-import java.util.Random;
+import java.util.*;
 
 public class Chat {
 
@@ -145,5 +144,19 @@ public class Chat {
 
             return players;
         }
+    }
+
+    public static List<String> replacePlaceholders(List<String> list, String key, String value) {
+        List<String> tempList = Lists.newArrayList();
+
+        for (String line : list) {
+            if (line.contains(key)) {
+                line = line.replace(key, value);
+            }
+
+            tempList.add(line);
+        }
+
+        return tempList;
     }
 }

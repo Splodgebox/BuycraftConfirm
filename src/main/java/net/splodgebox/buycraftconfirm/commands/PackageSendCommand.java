@@ -1,10 +1,7 @@
 package net.splodgebox.buycraftconfirm.commands;
 
 import co.aikar.commands.BaseCommand;
-import co.aikar.commands.annotation.CommandAlias;
-import co.aikar.commands.annotation.CommandPermission;
-import co.aikar.commands.annotation.Default;
-import co.aikar.commands.annotation.Subcommand;
+import co.aikar.commands.annotation.*;
 import co.aikar.commands.bukkit.contexts.OnlinePlayer;
 import net.splodgebox.buycraftconfirm.controllers.PackageController;
 import net.splodgebox.buycraftconfirm.controllers.PackageDataController;
@@ -26,6 +23,7 @@ public class PackageSendCommand extends BaseCommand {
 
     @Subcommand("send")
     @CommandPermission("buycraftconfirm.admin")
+    @CommandCompletion("@players @packages")
     public void sendPackage(CommandSender sender, OnlinePlayer player, String packageName) {
         if (!PackageController.getPackages().containsKey(packageName)) {
             Message.ERROR__INVALID_PACKAGE.msg(sender);

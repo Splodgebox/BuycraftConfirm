@@ -1,10 +1,22 @@
+Settings:
+  lore:
+    - '&7Click item to claim this Buycraft Package'
+    - ''
+    - '&f&lNOTE: &7If you do &nNOT&7 wish to accept'
+    - '&7this package, please right-click it'
+    - ''
+    - '&c&lWARNING: &7By accepting this package'
+    - '&7you claim full responsibility for the'
+    - '&7payment and you will be banned if it is'
+    - '&7flagged as a fraudulent or if the payment'
+    - '&7is charged-back by PayPal'
+    - ''
+    - '&e&lPACKAGE ID: &7{NAME}'
+
 Packages:
   test:
     material: "DIRT"
     name: "&e&lTest Package"
-    lore:
-      - '&7Left Click to accept this test package'
-      - '&7Right Click to cancel this test package'
     commands:
       - 'broadcast Hello Test, haha skater'
     message:

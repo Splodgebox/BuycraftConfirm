@@ -12,11 +12,13 @@ import org.bukkit.inventory.ItemStack;
 import java.text.SimpleDateFormat;
 
 public enum Message {
-    ERROR__INVALID_PACKAGE("&c&l(!) &cThat is not a valid buycraft package"),
-    ERROR__NO_PACKAGE("&c&l(!) &cYou do not have any active packages!"),
+    ERROR__INVALID_PACKAGE( "&f&l(&6&lBuycraft&e&lConfirm&f&l) &eThat is not a valid buycraft package"),
+    ERROR__NO_PACKAGE( "&f&l(&6&lBuycraft&e&lConfirm&f&l) &eYou do not have any active packages!"),
 
-    PACKAGE__SENT("&e&l(!) &eYou have a new buycraft purchase &7Do /confirm to accept the payment"),
-    PACKAGE__DECLINE("&c&l(!) &cYou have declined {PACKAGE}!");
+    PACKAGE__SENT("&f&l(&6&lBuycraft&e&lConfirm&f&l) &eYou have a new buycraft purchase &7Do /confirm to accept the payment"),
+    PACKAGE__DECLINE("&f&l(&6&lBuycraft&e&lConfirm&f&l) &eYou have declined {PACKAGE}!"),
+
+    COMMAND__RELOAD("&f&l(&6&lBuycraft&e&lConfirm&f&l) &eSuccessfully reloaded all the configuration files and packages");
 
     public static SimpleDateFormat sdf;
     private static FileConfiguration LANG;
