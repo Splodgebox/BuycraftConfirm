@@ -15,7 +15,7 @@ public class PackageReloadCommand extends BaseCommand {
     @CommandPermission("buycraftconfirm.admin")
     public void reloadConfigs(CommandSender sender) {
         BuycraftConfirm.getInstance().reloadConfig();
-        new PackageController().loadPackages();
+        BuycraftConfirm.getInstance().getPackageController().loadPackages();
 
         BuycraftConfirm.getInstance().lang.reload();
     }

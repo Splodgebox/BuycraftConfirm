@@ -20,6 +20,12 @@ public final class BuycraftConfirm extends JavaPlugin {
 
     @Getter
     private static BuycraftConfirm instance;
+
+    @Getter
+    public PackageDataController dataController;
+    @Getter
+    public PackageController packageController;
+
     public FileManager data;
     public FileManager lang;
 
@@ -29,6 +35,9 @@ public final class BuycraftConfirm extends JavaPlugin {
         saveDefaultConfig();
         data = new FileManager(this, "data", getDataFolder().getAbsolutePath());
         lang = new FileManager(this, "lang", getDataFolder().getAbsolutePath());
+
+        dataController = new PackageDataController();
+        packageController = new PackageController();
 
         getServer().getPluginManager().registerEvents(new GuiListener() ,this);
 
@@ -44,8 +53,8 @@ public final class BuycraftConfirm extends JavaPlugin {
         new BukkitRunnable() {
             @Override
             public void run() {
-                new PackageController().loadPackages();
-                new PackageDataController().loadPlayers();
+                getPackageController().loadPackages();
+                getDataController().loadPlayers();
             }
         }.runTaskLater(this, 20L);
     }

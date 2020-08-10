@@ -14,6 +14,7 @@ import java.text.SimpleDateFormat;
 public enum Message {
     ERROR__INVALID_PACKAGE( "&f&l(&6&lBuycraft&e&lConfirm&f&l) &eThat is not a valid buycraft package"),
     ERROR__NO_PACKAGE( "&f&l(&6&lBuycraft&e&lConfirm&f&l) &eYou do not have any active packages!"),
+    ERROR__BUYCRAFT_CONSOLE("&f&l(&6&lBuycraft&e&lConfirm&f&l) &eYou cannot execute this command as a player, do this in your buycraft commands"),
 
     PACKAGE__SENT("&f&l(&6&lBuycraft&e&lConfirm&f&l) &eYou have a new buycraft purchase &7Do /confirm to accept the payment"),
     PACKAGE__DECLINE("&f&l(&6&lBuycraft&e&lConfirm&f&l) &eYou have declined {PACKAGE}!"),
