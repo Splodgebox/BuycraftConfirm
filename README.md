@@ -11,3 +11,10 @@ Confirmation Menu for buycraft purchases
 If you like this plugin and would like more free plugins like this then consider donating; it will allow me to create more free plugins
 
 https://www.paypal.me/splodgeboxdev
+
+## Source Code
+This source code requires Lombok to work, Ideally you should compile and edit this plugin in IntelliJ
+
+Build Tool: Gradle
+
+Minecraft Version: 1.8-1.16.1
