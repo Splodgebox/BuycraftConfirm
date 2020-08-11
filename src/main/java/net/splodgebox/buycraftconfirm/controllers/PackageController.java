@@ -15,7 +15,7 @@ public class PackageController {
     private HashMap<String, Package> packages = Maps.newHashMap();
 
     public void loadPackages() {
-        packages.clear();
+        getPackages().clear();
         FileConfiguration config = BuycraftConfirm.getInstance().getConfig();
         for (String aPackage : BuycraftConfirm.getInstance().getConfig().getConfigurationSection("Packages").getKeys(false)) {
             String path = "Packages." + aPackage + ".";
@@ -26,8 +26,7 @@ public class PackageController {
                     config.getStringList(path + "commands"),
                     config.getStringList(path + "message")
             );
-
-            packages.put(aPackage, bPackage);
+            getPackages().put(aPackage, bPackage);
         }
     }
 }

@@ -20,10 +20,10 @@ public class Package {
     private final List<String> message;
 
     public ItemStack create() {
-        return new ItemStackBuilder(material)
-                .setName(display)
+        return new ItemStackBuilder(getMaterial())
+                .setName(getDisplay())
                 .setLore(Chat.replacePlaceholders(BuycraftConfirm.getInstance().getConfig().getStringList("Settings.lore"),
-                        "{NAME}", name))
+                        "{NAME}", getName()))
                 .build();
     }
 }

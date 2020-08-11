@@ -4,9 +4,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import lombok.Getter;
 import net.splodgebox.buycraftconfirm.BuycraftConfirm;
-import net.splodgebox.buycraftconfirm.Package;
 import net.splodgebox.buycraftconfirm.PackageIcon;
-import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 
