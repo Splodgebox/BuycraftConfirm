@@ -7,8 +7,8 @@ import net.splodgebox.buycraftconfirm.commands.PackageReloadCommand;
 import net.splodgebox.buycraftconfirm.commands.PackageSendCommand;
 import net.splodgebox.buycraftconfirm.controllers.PackageController;
 import net.splodgebox.buycraftconfirm.controllers.PackageDataController;
-import net.splodgebox.buycraftconfirm.controllers.PlayerPackageController;
 import net.splodgebox.buycraftconfirm.utils.FileManager;
+import net.splodgebox.buycraftconfirm.utils.ItemUtils;
 import net.splodgebox.buycraftconfirm.utils.Message;
 import net.splodgebox.buycraftconfirm.utils.gui.GuiListener;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -25,6 +25,8 @@ public final class BuycraftConfirm extends JavaPlugin {
     public PackageDataController dataController;
     @Getter
     public PackageController packageController;
+    @Getter
+    public ItemUtils itemUtils;
 
     public FileManager data;
     public FileManager lang;
@@ -38,6 +40,7 @@ public final class BuycraftConfirm extends JavaPlugin {
 
         dataController = new PackageDataController();
         packageController = new PackageController();
+        itemUtils = new ItemUtils();
 
         getServer().getPluginManager().registerEvents(new GuiListener() ,this);
 
