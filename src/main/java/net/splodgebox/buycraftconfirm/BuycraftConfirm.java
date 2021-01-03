@@ -11,8 +11,8 @@ import net.splodgebox.buycraftconfirm.utils.FileManager;
 import net.splodgebox.buycraftconfirm.utils.ItemUtils;
 import net.splodgebox.buycraftconfirm.utils.Message;
 import net.splodgebox.buycraftconfirm.utils.gui.GuiListener;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.Arrays;
 
@@ -53,13 +53,10 @@ public final class BuycraftConfirm extends JavaPlugin {
 
         loadMessages();
 
-        new BukkitRunnable() {
-            @Override
-            public void run() {
-                getPackageController().loadPackages();
-                getDataController().loadPlayers();
-            }
-        }.runTaskLater(this, 20L);
+        Bukkit.getScheduler().runTaskLater(this, () -> {
+            getPackageController().loadPackages();
+            getDataController().loadPlayers();
+        }, 20L);
     }
 
     @Override

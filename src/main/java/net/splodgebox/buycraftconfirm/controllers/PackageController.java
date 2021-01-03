@@ -3,7 +3,7 @@ package net.splodgebox.buycraftconfirm.controllers;
 import com.google.common.collect.Maps;
 import lombok.Getter;
 import net.splodgebox.buycraftconfirm.BuycraftConfirm;
-import net.splodgebox.buycraftconfirm.Package;
+import net.splodgebox.buycraftconfirm.data.Package;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 

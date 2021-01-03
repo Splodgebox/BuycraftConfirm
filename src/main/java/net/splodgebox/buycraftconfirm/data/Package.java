@@ -1,7 +1,8 @@
-package net.splodgebox.buycraftconfirm;
+package net.splodgebox.buycraftconfirm.data;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import net.splodgebox.buycraftconfirm.BuycraftConfirm;
 import net.splodgebox.buycraftconfirm.utils.Chat;
 import net.splodgebox.buycraftconfirm.utils.ItemStackBuilder;
 import org.bukkit.Material;

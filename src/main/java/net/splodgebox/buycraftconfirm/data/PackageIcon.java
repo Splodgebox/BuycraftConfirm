@@ -1,4 +1,4 @@
-package net.splodgebox.buycraftconfirm;
+package net.splodgebox.buycraftconfirm.data;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
