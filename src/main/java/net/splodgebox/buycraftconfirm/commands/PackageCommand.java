@@ -14,7 +14,7 @@ public class PackageCommand extends BaseCommand {
     @Default
     public void openPackageMenu(CommandSender sender) {
         Player player = (Player) sender;
-        if (BuycraftConfirm.getInstance().getDataController().getPackageAmount(player) == 0) {
+        if (BuycraftConfirm.getInstance().getDataController().getPackageAmount(player.getUniqueId()) == 0) {
             Message.ERROR__NO_PACKAGE.msg(player);
             return;
         }

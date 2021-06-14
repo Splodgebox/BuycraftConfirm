@@ -51,7 +51,7 @@ public class PlayerPackageController {
                     Chat.msg(clicker, Message.PACKAGE__DECLINE.toString().replace("{PACKAGE}", value));
                     redeemed = false;
                 }
-                BuycraftConfirm.getInstance().getDataController().removePlayer(clicker, value, redeemed);
+                BuycraftConfirm.getInstance().getDataController().removePlayer(clicker.getUniqueId(), value, redeemed);
 
                 clicker.closeInventory();
             });

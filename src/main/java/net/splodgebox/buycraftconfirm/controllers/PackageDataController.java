@@ -20,20 +20,20 @@ public class PackageDataController {
     @Getter
     private HashMap<UUID, List<String>> playerPackages = Maps.newHashMap();
 
-    public void savePlayer(Player player, String sPackage, String transaction, String price, String date) {
+    public void savePlayer(UUID uuid, String sPackage, String transaction, String price, String date) {
         List<PackageIcon> packages = Lists.newArrayList();
         List<String> packageList = Lists.newArrayList();
-        if (getPlayerPackages().containsKey(player.getUniqueId()))
-            packageList = getPlayerPackages().get(player.getUniqueId());
+        if (getPlayerPackages().containsKey(uuid))
+            packageList = getPlayerPackages().get(uuid);
 
-        if (getPlayerPackageData().containsKey(player.getUniqueId()))
-            packages = getPlayerPackageData().get(player.getUniqueId());
+        if (getPlayerPackageData().containsKey(uuid))
+            packages = getPlayerPackageData().get(uuid);
 
         packages.add(new PackageIcon(sPackage, transaction, price, date));
         packageList.add(sPackage);
 
-        getPlayerPackageData().put(player.getUniqueId(), packages);
-        getPlayerPackages().put(player.getUniqueId(), packageList);
+        getPlayerPackageData().put(uuid, packages);
+        getPlayerPackages().put(uuid, packageList);
 
         List<String> storageValue = Lists.newArrayList();
 
@@ -41,18 +41,18 @@ public class PackageDataController {
             storageValue.add(aPackage.getAPackage() + "@@;" + aPackage.getTransaction() +  "@@;" + aPackage.getPrice() + "@@;" + aPackage.getDate());
         }
 
-        BuycraftConfirm.getInstance().data.getConfig().set("Data." + player.getUniqueId() + ".packages", packageList);
-        BuycraftConfirm.getInstance().data.getConfig().set("Data." + player.getUniqueId() + ".package-data", storageValue);
+        BuycraftConfirm.getInstance().data.getConfig().set("Data." + uuid + ".packages", packageList);
+        BuycraftConfirm.getInstance().data.getConfig().set("Data." + uuid + ".package-data", storageValue);
         BuycraftConfirm.getInstance().data.save();
     }
 
-    public void removePlayer(Player player, String sPackage, boolean redeemed) {
-        if (getPlayerPackages().containsKey(player.getUniqueId()) &&
-                getPlayerPackageData().containsKey(player.getUniqueId())) {
-            List<String> packages = getPlayerPackages().get(player.getUniqueId());
+    public void removePlayer(UUID uuid, String sPackage, boolean redeemed) {
+        if (getPlayerPackages().containsKey(uuid) &&
+                getPlayerPackageData().containsKey(uuid)) {
+            List<String> packages = getPlayerPackages().get(uuid);
             packages.remove(sPackage);
 
-            List<PackageIcon> packageIcons = getPlayerPackageData().get(player.getUniqueId());
+            List<PackageIcon> packageIcons = getPlayerPackageData().get(uuid);
             PackageIcon packageIcon = null;
 
             Iterator<PackageIcon> ite = packageIcons.iterator();
@@ -72,16 +72,16 @@ public class PackageDataController {
                 storageValue.add(aPackage.getAPackage() + "@@;" + aPackage.getTransaction() +  "@@;" + aPackage.getPrice() + "@@;" + aPackage.getDate());
             }
 
-            getPlayerPackages().put(player.getUniqueId(), packages);
-            getPlayerPackageData().put(player.getUniqueId(), packageIcons);
-            BuycraftConfirm.getInstance().data.getConfig().set("Data." + player.getUniqueId() + ".packages", packages);
-            BuycraftConfirm.getInstance().data.getConfig().set("Data." + player.getUniqueId() + ".package-data", storageValue);
+            getPlayerPackages().put(uuid, packages);
+            getPlayerPackageData().put(uuid, packageIcons);
+            BuycraftConfirm.getInstance().data.getConfig().set("Data." + uuid + ".packages", packages);
+            BuycraftConfirm.getInstance().data.getConfig().set("Data." + uuid + ".package-data", storageValue);
 
             if (packageIcon != null) {
-                BuycraftConfirm.getInstance().data.getConfig().set("Log." + player.getUniqueId() + "." + packageIcon.getTransaction() + ".name", packageIcon.getAPackage());
-                BuycraftConfirm.getInstance().data.getConfig().set("Log." + player.getUniqueId() + "." + packageIcon.getTransaction() + ".date", packageIcon.getDate());
-                BuycraftConfirm.getInstance().data.getConfig().set("Log." + player.getUniqueId() + "." + packageIcon.getTransaction() + ".price", packageIcon.getPrice());
-                BuycraftConfirm.getInstance().data.getConfig().set("Log." + player.getUniqueId() + "." + packageIcon.getTransaction() + ".redeemed", redeemed);
+                BuycraftConfirm.getInstance().data.getConfig().set("Log." + uuid + "." + packageIcon.getTransaction() + ".name", packageIcon.getAPackage());
+                BuycraftConfirm.getInstance().data.getConfig().set("Log." + uuid + "." + packageIcon.getTransaction() + ".date", packageIcon.getDate());
+                BuycraftConfirm.getInstance().data.getConfig().set("Log." + uuid + "." + packageIcon.getTransaction() + ".price", packageIcon.getPrice());
+                BuycraftConfirm.getInstance().data.getConfig().set("Log." + uuid + "." + packageIcon.getTransaction() + ".redeemed", redeemed);
             }
 
             BuycraftConfirm.getInstance().data.save();
@@ -89,9 +89,9 @@ public class PackageDataController {
         }
     }
 
-    public int getPackageAmount(Player player) {
-        if (getPlayerPackages().containsKey(player.getUniqueId())) {
-            List<String> packages = getPlayerPackages().get(player.getUniqueId());
+    public int getPackageAmount(UUID uuid) {
+        if (getPlayerPackages().containsKey(uuid)) {
+            List<String> packages = getPlayerPackages().get(uuid);
             return packages.size();
         }
         return 0;
